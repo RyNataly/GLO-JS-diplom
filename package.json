@@ -1,0 +1,21 @@
+{
+  "name": "glo-js-diplom",
+  "version": "1.0.0",
+  "description": "diplom",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-legacy": "^5.4.2",
+    "vite": "^5.4.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "glo-js-diplom"
+  },
+  "author": "Nataly",
+  "license": "ISC"
+}
