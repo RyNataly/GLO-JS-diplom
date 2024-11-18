@@ -31,11 +31,11 @@ export const menu = () => {
         e.preventDefault(); 
         top = document.documentElement.scrollTop
         if (index === 0) {
-            height = 670
+            height = 615
         } else if (index === 1) {
-            height = 3650
+            height = 3100
         }else if (index === 2) {
-            height = 4300
+            height = 3810
         }
 
         if (top < height) {
