@@ -4,6 +4,7 @@ import { slider } from './src/modules/slider'
 import { services } from './src/modules/services'
 import { accordeon } from './src/modules/accordeon'
 import { buttonUp } from './src/modules/buttonUp'
+import { sendForm } from './src/modules/sendForm'
 
 modal()
 menu()
@@ -11,3 +12,4 @@ slider()
 services()
 accordeon()
 buttonUp()
+sendForm()
