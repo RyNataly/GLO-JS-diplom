@@ -283,6 +283,7 @@ a.absolute {
 }
 .modal-callback {
 	display: none;
+	flex-direction: column;
 	position: fixed;
 	top: 20%;
 	left: 50%;
@@ -1245,7 +1246,7 @@ video#video_background {
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	z-index: 5
+	z-index: 15
 }
 
 .dots .dot {
