@@ -4,12 +4,21 @@ export const slider = () => {
   const dots = [];
   const sliderDots = document.querySelector(".dots");
 
+  const timeInterval = 3000;
   let currentSlide = 0;
   let interval;
 
-  const autoSlide = () => {
+  const activeDot = (index, strClass) => {
+    dots[index].classList.toggle(strClass);
+  };
+
+  const nextSlide = () => {
     slides = sliderBlock.querySelectorAll(".item");
-    dots[currentSlide].classList.remove("dot-active");
+    sliderBlock.insertBefore(slides[0], null);
+  };
+
+  const autoSlide = () => {
+    activeDot(currentSlide, "dot-active");
 
     currentSlide++;
 
@@ -17,8 +26,8 @@ export const slider = () => {
       currentSlide = 0;
     }
 
-    sliderBlock.insertBefore(slides[0], null);
-    dots[currentSlide].classList.add("dot-active");
+    nextSlide();
+    activeDot(currentSlide, "dot-active");
   };
 
   const StartDots = () => {
@@ -32,7 +41,29 @@ export const slider = () => {
       dots.push(dot);
 
       dot.addEventListener("click", () => {
-        console.log(dots);
+        if (index + 1 === currentSlide || index - 2 === currentSlide) {
+          activeDot(currentSlide, "dot-active");
+          currentSlide++;
+          if (currentSlide >= slides.length) {
+            currentSlide = 0;
+          }
+          nextSlide();
+          currentSlide++;
+          if (currentSlide >= slides.length) {
+            currentSlide = 0;
+          }
+          nextSlide();
+          activeDot(currentSlide, "dot-active");
+        }
+        if (index + 2 === currentSlide || index - 1 === currentSlide) {
+          activeDot(currentSlide, "dot-active");
+          currentSlide++;
+          if (currentSlide >= slides.length) {
+            currentSlide = 0;
+          }
+          nextSlide();
+          activeDot(currentSlide, "dot-active");
+        }
       });
     });
   };
@@ -50,6 +81,26 @@ export const slider = () => {
     slide.querySelector(".table").style.visibility = "visible";
   });
 
+  sliderBlock.addEventListener(
+    "mouseenter",
+    (e) => {
+      if (e.target.matches(".dot")) {
+        stopSlide();
+      }
+    },
+    true
+  );
+
+  sliderBlock.addEventListener(
+    "mouseleave",
+    (e) => {
+      if (e.target.matches(".dot")) {
+        startSlide(timeInterval);
+      }
+    },
+    true
+  );
+
   StartDots();
-  startSlide(3000);
+  startSlide(timeInterval);
 };
