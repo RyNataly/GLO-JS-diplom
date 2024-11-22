@@ -15,6 +15,7 @@
   "author": "Nataly",
   "license": "ISC",
   "dependencies": {
+    "seamless-scroll-polyfill": "^2.3.4",
     "swiper": "^11.1.14"
   },
   "devDependencies": {
